@@ -27,9 +27,9 @@
       <!--<inputSolutionFile>data/cloudbalancing/unsolved/20computers-60processes.xml</inputSolutionFile>-->
       <inputSolutionFile>data/cloudbalancing/unsolved/100computers-300processes.xml</inputSolutionFile>
       <inputSolutionFile>data/cloudbalancing/unsolved/200computers-600processes.xml</inputSolutionFile>
-      <inputSolutionFile>data/cloudbalancing/unsolved/400computers-1200processes.xml</inputSolutionFile>
-      <inputSolutionFile>data/cloudbalancing/unsolved/800computers-2400processes.xml</inputSolutionFile>
-      <inputSolutionFile>data/cloudbalancing/unsolved/1600computers-4800processes.xml</inputSolutionFile>
+      <!--<inputSolutionFile>data/cloudbalancing/unsolved/400computers-1200processes.xml</inputSolutionFile>-->
+      <!--<inputSolutionFile>data/cloudbalancing/unsolved/800computers-2400processes.xml</inputSolutionFile>-->
+      <!--<inputSolutionFile>data/cloudbalancing/unsolved/1600computers-4800processes.xml</inputSolutionFile>-->
       <!--<problemStatisticType>BEST_SCORE</problemStatisticType>-->
       <!--<problemStatisticType>STEP_SCORE</problemStatisticType>-->
       <!--<problemStatisticType>SCORE_CALCULATION_SPEED</problemStatisticType>-->
@@ -50,7 +50,7 @@
         <initializingScoreTrend>ONLY_DOWN/ONLY_DOWN</initializingScoreTrend>
       </scoreDirectorFactory>
       <termination>
-        <minutesSpentLimit>5</minutesSpentLimit>
+        <secondsSpentLimit>80</secondsSpentLimit>
       </termination>
     </solver>
   </inheritedSolverBenchmark>
@@ -69,14 +69,6 @@
     <solver>
       <constructionHeuristic>
         <constructionHeuristicType>FIRST_FIT</constructionHeuristicType>
-      </constructionHeuristic>
-    </solver>
-  </solverBenchmark>
-  <solverBenchmark>
-    <name>First Fit Decreasing</name>
-    <solver>
-      <constructionHeuristic>
-        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
       </constructionHeuristic>
     </solver>
   </solverBenchmark>
@@ -104,7 +96,7 @@
     </solver>
   </solverBenchmark>
   <solverBenchmark>
-    <name>Simulated Annealing</name>
+    <name>Simulated Annealing 0-400</name>
     <solver>
       <constructionHeuristic>
         <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
@@ -118,6 +110,72 @@
         </unionMoveSelector>
         <acceptor>
           <simulatedAnnealingStartingTemperature>0hard/400soft</simulatedAnnealingStartingTemperature>
+        </acceptor>
+        <forager>
+          <acceptedCountLimit>4</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solver>
+  </solverBenchmark>
+  <solverBenchmark>
+    <name>Simulated Annealing 100-500</name>
+    <solver>
+      <constructionHeuristic>
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch>
+        <unionMoveSelector>
+          <changeMoveSelector/>
+          <swapMoveSelector/>
+          <pillarChangeMoveSelector/>
+          <pillarSwapMoveSelector/>
+        </unionMoveSelector>
+        <acceptor>
+          <simulatedAnnealingStartingTemperature>100hard/500soft</simulatedAnnealingStartingTemperature>
+        </acceptor>
+        <forager>
+          <acceptedCountLimit>4</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solver>
+  </solverBenchmark>
+  <solverBenchmark>
+    <name>Simulated Annealing 300-1000</name>
+    <solver>
+      <constructionHeuristic>
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch>
+        <unionMoveSelector>
+          <changeMoveSelector/>
+          <swapMoveSelector/>
+          <pillarChangeMoveSelector/>
+          <pillarSwapMoveSelector/>
+        </unionMoveSelector>
+        <acceptor>
+          <simulatedAnnealingStartingTemperature>300hard/1000soft</simulatedAnnealingStartingTemperature>
+        </acceptor>
+        <forager>
+          <acceptedCountLimit>4</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solver>
+  </solverBenchmark>
+  <solverBenchmark>
+    <name>Simulated Annealing 0-10000</name>
+    <solver>
+      <constructionHeuristic>
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch>
+        <unionMoveSelector>
+          <changeMoveSelector/>
+          <swapMoveSelector/>
+          <pillarChangeMoveSelector/>
+          <pillarSwapMoveSelector/>
+        </unionMoveSelector>
+        <acceptor>
+          <simulatedAnnealingStartingTemperature>0hard/10000soft</simulatedAnnealingStartingTemperature>
         </acceptor>
         <forager>
           <acceptedCountLimit>4</acceptedCountLimit>
